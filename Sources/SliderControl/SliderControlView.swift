@@ -11,7 +11,7 @@ import SwiftUI
 public struct SliderControlView<T: BinaryFloatingPoint>: UIViewRepresentable {
     public typealias UIViewType = SliderControl
 
-    public class Coordinator<U: BinaryFloatingPoint>: NSObject {
+    public class SliderCoordinator<U: BinaryFloatingPoint>: NSObject {
         @Binding private var value: U
 
         init(value: Binding<U>) {
@@ -75,8 +75,8 @@ public struct SliderControlView<T: BinaryFloatingPoint>: UIViewRepresentable {
         return control
     }
 
-    public func makeCoordinator() -> Coordinator<T> {
-        Coordinator(value: $value)
+    public func makeCoordinator() -> SliderCoordinator<T> {
+        SliderCoordinator(value: $value)
     }
 
     public func updateUIView(_ uiView: SliderControl, context: Context) {
